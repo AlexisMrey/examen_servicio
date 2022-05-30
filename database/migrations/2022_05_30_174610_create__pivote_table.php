@@ -15,10 +15,10 @@ class CreatePivoteTable extends Migration
     {
         Schema::create('_pivote', function (Blueprint $table) {
             $table->id();
-            $table->integer('estudiante_id');
-            $table->integer('materia_id');
-            $table->foreign('estudiante_id')->references('id')->on('estudiante');
-            $table->foreign('materia_id')->references('id')->on('materia');
+            $table->unsignedBigInteger('estudiante_id');
+            $table->unsignedBigInteger('materia_id');
+            $table->foreign('estudiante_id')->references('id')->on('_estudiante');
+            $table->foreign('materia_id')->references('id')->on('_materia');
             $table->timestamps();
         });
     }
